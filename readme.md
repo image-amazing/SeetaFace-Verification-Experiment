@@ -27,3 +27,7 @@ Matplotlib
 ROC曲线
 
 ![roc](./myplot3.png)
+
+## 结论
+
+SeetaFace用于简单的身份验证的效果较好，取相似度阈值为0.6左右的时候效果较好
