@@ -110,7 +110,7 @@ int main(int argc, char* argv[]) {
 	std::vector<string> filename_str;
 	std::vector<bool> if_face_detected;
 	std::vector<float*> img_vec;
-	while (ifs >> img_name) {
+	while (ifs >> img_name) {  //预先处理，加块运算
 		filename_str.push_back(img_name);
 		cv::Mat img_color = cv::imread(test_dir + "data/" + img_name, CV_LOAD_IMAGE_COLOR);
 		cv::Mat img_gray;
@@ -146,7 +146,7 @@ int main(int argc, char* argv[]) {
 	std::cout << "data loaded" << endl;
 	std::ofstream ofs;
 	ofs.open("./outdata.txt");
-	for (int i = 0; i < img_vec.size(); i++) {
+	for (int i = 0; i < img_vec.size(); i++) {  //计算相似值
 		for (int j = i + 1; j < img_vec.size(); j++) {
 			if (if_face_detected[i] && if_face_detected[j]) {
 				float simi = face_recognizer.CalcSimilarity(img_vec[i], img_vec[j]);
@@ -191,7 +191,7 @@ int main(int argc, char* argv[]) {
 //
 //		cap >> frame;
 //
-//		imshow("��������ͷ", frame);
+//		imshow("µ÷ÓÃÉãÏñÍ·", frame);
 //
 //		waitKey(30);
 //
